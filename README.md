@@ -1,6 +1,6 @@
 # Docker container memory usage plugin for munin
 
-This plugin charts memory uage of all running docker containers in one
+This plugin charts memory usage of all running docker containers in one
 chart.
 
 ## Requirements:
