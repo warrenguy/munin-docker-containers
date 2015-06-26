@@ -15,7 +15,7 @@ end
 case ARGV[0]
 when 'config'
   puts ({
-    'graph_title'            => 'Docker container memory uage',
+    'graph_title'            => 'Docker container memory usage',
     'graph_vlabel'           => 'bytes',
     'graph_category'         => 'docker_container',
   }).map{|k,v| [k,v].join(" ")}.join("\n")
