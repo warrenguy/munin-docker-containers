@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
-docker_ps = `docker ps --no-trunc`.split("\n")
-docker_ps.shift
+docker_ps = `docker ps --no-trunc`.split("\n")[0..-1]
 
 containers = {}
 docker_ps.each do |container|
