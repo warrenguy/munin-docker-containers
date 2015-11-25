@@ -1,11 +1,15 @@
 #!/usr/bin/env ruby
 
+require 'json'
+
 docker_ps = `docker ps --no-trunc`.split("\n")[0..-1]
 
 containers = {}
 docker_ps.each do |container|
   id        = container.split(' ').first
-  name      = container.split(' ').last.split(',').first
+  inspect   = JSON.parse(`docker inspect #{id}`)
+  name      = inspect.first['Name'].gsub(/^\//,'')
+
   mem_bytes = File.read(open("/sys/fs/cgroup/memory/docker/#{id}/memory.usage_in_bytes")).to_i
 
   containers[id] = {name: name, mem_bytes: mem_bytes}
