@@ -2,7 +2,7 @@
 
 require 'json'
 
-docker_ps = `docker ps --no-trunc`.split("\n")[0..-1]
+docker_ps = `docker ps --no-trunc`.split("\n")[1..-1]
 
 containers = {}
 docker_ps.each do |container|
